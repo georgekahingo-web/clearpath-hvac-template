@@ -1,16 +1,14 @@
+import Hero from "@/components/Hero";
 import ServiceForm from "@/components/ServiceForm";
 
 export default function Home() {
   return (
     <main>
-      {/* HERO */}
-      <section className="bg-gray-900 text-white px-6 py-32 text-center">
-        <h1 className="text-5xl font-semibold">
-          Fast & Reliable HVAC Services
-        </h1>
-      </section>
+      <div className="bg-blue-600 text-white text-center py-2 text-sm font-medium">
+        24/7 Emergency Service • Call Now: (404) 555-1234
+      </div>
+      <Hero />
 
-      {/* FORM */}
       <ServiceForm />
     </main>
   );

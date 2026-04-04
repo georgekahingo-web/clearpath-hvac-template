@@ -26,14 +26,6 @@ body {
 }
 
 .input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-.input:focus {
-  outline: none;
-  border-color: #2563eb;
+  @apply w-full rounded-lg border border-gray-300 bg-white px-3 py-3 text-sm text-black placeholder:text-gray-400;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
 }
