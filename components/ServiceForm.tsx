@@ -121,7 +121,7 @@ export default function ServiceForm({
     : "px-6 py-20 bg-gray-100";
 
   const cardClass = isEmbedded
-    ? "mx-auto w-full max-w-md rounded-[1.0625rem] border border-slate-200/95 bg-white shadow-[0_32px_64px_-16px_rgba(15,23,42,0.5)] ring-1 ring-slate-950/[0.07] transition-shadow duration-300 ease-out group-hover/card:shadow-[0_40px_72px_-18px_rgba(15,23,42,0.55)] overflow-hidden lg:mx-0 lg:max-w-none lg:w-full"
+    ? "mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-gray-200/40 bg-white/90 shadow-xl backdrop-blur-xl transition-shadow duration-300 ease-out group-hover/card:shadow-xl lg:mx-0 lg:max-w-none lg:w-full"
     : "mx-auto max-w-3xl bg-white rounded-xl shadow-md overflow-hidden";
 
   const formPadding = isEmbedded ? "p-5 sm:p-6 space-y-3.5" : "p-6 md:p-8 space-y-5";
@@ -130,12 +130,12 @@ export default function ServiceForm({
     : "p-8 md:p-10 text-center space-y-4";
 
   const primaryBtn = isEmbedded
-    ? "w-full shrink-0 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-200 ease-out hover:scale-105 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:scale-95 disabled:pointer-events-none disabled:opacity-60 disabled:hover:scale-100 motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:w-auto"
-    : "w-full shrink-0 rounded-lg bg-blue-600 px-8 py-3.5 font-semibold text-white shadow-md shadow-blue-600/20 transition-all duration-200 ease-out hover:scale-105 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:scale-95 disabled:pointer-events-none disabled:opacity-60 disabled:hover:scale-100 motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:w-auto";
+    ? "w-full shrink-0 rounded-xl bg-gradient-to-r from-blue-700 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-900/20 transition-all duration-300 ease-out hover:scale-[1.02] hover:from-blue-800 hover:to-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:scale-[0.99] disabled:pointer-events-none disabled:opacity-60 disabled:hover:scale-100 motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:w-auto"
+    : "w-full shrink-0 rounded-xl bg-gradient-to-r from-blue-700 to-blue-600 px-8 py-3.5 font-semibold text-white shadow-lg shadow-blue-900/20 transition-all duration-300 ease-out hover:scale-[1.02] hover:from-blue-800 hover:to-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 active:scale-[0.99] disabled:pointer-events-none disabled:opacity-60 disabled:hover:scale-100 motion-reduce:hover:scale-100 motion-reduce:active:scale-100 sm:w-auto";
 
   const secondaryBtn = isEmbedded
-    ? "w-full rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition-all duration-200 ease-out hover:border-gray-400 hover:bg-slate-50 active:scale-[0.98] motion-reduce:hover:border-slate-300 motion-reduce:active:scale-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:w-auto"
-    : "w-full rounded-lg border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 shadow-sm transition-all duration-200 ease-out hover:border-gray-400 hover:bg-slate-50 active:scale-[0.98] motion-reduce:hover:border-slate-300 motion-reduce:active:scale-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:w-auto";
+    ? "w-full rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition-all duration-200 ease-out hover:border-gray-400 hover:bg-slate-50 active:scale-[0.98] motion-reduce:hover:border-slate-300 motion-reduce:active:scale-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto"
+    : "w-full rounded-lg border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 shadow-sm transition-all duration-200 ease-out hover:border-gray-400 hover:bg-slate-50 active:scale-[0.98] motion-reduce:hover:border-slate-300 motion-reduce:active:scale-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 sm:w-auto";
 
   const stepBodyMinH = isEmbedded ? "min-h-[17.5rem]" : "min-h-[18.5rem]";
   const stepEnter =
@@ -144,7 +144,7 @@ export default function ServiceForm({
   const card = (
     <div className={cardClass}>
       {isEmbedded ? (
-        <div className="w-full border-b border-white/10 bg-blue-600 px-5 py-4 text-left text-white sm:px-6 sm:py-5">
+        <div className="w-full border-b border-white/10 bg-blue-700 px-5 py-4 text-left text-white sm:px-6 sm:py-5">
           <h2 className="text-xl font-bold leading-[1.15] tracking-tight text-white drop-shadow-sm sm:text-2xl">
             Get Your Free Same-Day Estimate
           </h2>
@@ -156,7 +156,7 @@ export default function ServiceForm({
           </p>
         </div>
       ) : (
-        <div className="w-full border-b border-white/10 bg-blue-600 px-6 py-6 text-left text-white md:px-8 md:py-7">
+        <div className="w-full border-b border-white/10 bg-blue-700 px-6 py-6 text-left text-white md:px-8 md:py-7">
           <h2 className="text-2xl font-bold leading-[1.12] tracking-tight text-white drop-shadow-sm md:text-3xl md:leading-[1.1]">
             Get Your Free Same-Day Estimate
           </h2>
@@ -201,7 +201,7 @@ export default function ServiceForm({
           </p>
           <button
             type="button"
-            className="mt-2 text-blue-600 font-medium hover:text-blue-700 underline underline-offset-2"
+            className="mt-2 text-blue-700 font-medium hover:text-blue-800 underline underline-offset-2"
             onClick={() => {
               setStatus("idle");
               setErrorMessage(null);
@@ -261,7 +261,7 @@ export default function ServiceForm({
             aria-label={`Form step ${step} of 2`}
           >
             <div
-              className={`h-full rounded-full bg-blue-600 transition-[width] duration-300 ease-out motion-reduce:transition-none ${
+              className={`h-full rounded-full bg-blue-700 transition-[width] duration-300 ease-out motion-reduce:transition-none ${
                 step === 1 ? "w-1/2" : "w-full"
               }`}
             />
@@ -281,7 +281,7 @@ export default function ServiceForm({
                         htmlFor="sf-name"
                         className={`block text-[13px] font-medium text-gray-700 ${labelMb}`}
                       >
-                        Name <span className="text-red-600">*</span>
+                        Name <span className="text-red-500">*</span>
                       </label>
                       <input
                         id="sf-name"
@@ -302,7 +302,7 @@ export default function ServiceForm({
                         htmlFor="sf-phone"
                         className={`block text-[13px] font-medium text-gray-700 ${labelMb}`}
                       >
-                        Phone <span className="text-red-600">*</span>
+                        Phone <span className="text-red-500">*</span>
                       </label>
                       <input
                         id="sf-phone"
@@ -324,7 +324,7 @@ export default function ServiceForm({
                         htmlFor="sf-service"
                         className={`block text-[13px] font-medium text-gray-700 ${labelMb}`}
                       >
-                        Service <span className="text-red-600">*</span>
+                        Service <span className="text-red-500">*</span>
                       </label>
                       <select
                         id="sf-service"
@@ -352,7 +352,7 @@ export default function ServiceForm({
                         htmlFor="sf-name"
                         className={`block text-sm font-medium text-gray-700 ${labelMb}`}
                       >
-                        Name <span className="text-red-600">*</span>
+                        Name <span className="text-red-500">*</span>
                       </label>
                       <input
                         id="sf-name"
@@ -373,7 +373,7 @@ export default function ServiceForm({
                         htmlFor="sf-phone"
                         className={`block text-sm font-medium text-gray-700 ${labelMb}`}
                       >
-                        Phone <span className="text-red-600">*</span>
+                        Phone <span className="text-red-500">*</span>
                       </label>
                       <input
                         id="sf-phone"
@@ -395,7 +395,7 @@ export default function ServiceForm({
                         htmlFor="sf-service"
                         className={`block text-sm font-medium text-gray-700 ${labelMb}`}
                       >
-                        Service <span className="text-red-600">*</span>
+                        Service <span className="text-red-500">*</span>
                       </label>
                       <select
                         id="sf-service"
@@ -448,7 +448,7 @@ export default function ServiceForm({
                         htmlFor="sf-email"
                         className={`block text-[13px] font-medium text-gray-700 ${labelMb}`}
                       >
-                        Email <span className="text-red-600">*</span>
+                        Email <span className="text-red-500">*</span>
                       </label>
                       <input
                         id="sf-email"
@@ -565,7 +565,7 @@ export default function ServiceForm({
                         htmlFor="sf-email"
                         className={`block text-sm font-medium text-gray-700 ${labelMb}`}
                       >
-                        Email <span className="text-red-600">*</span>
+                        Email <span className="text-red-500">*</span>
                       </label>
                       <input
                         id="sf-email"
@@ -721,14 +721,20 @@ export default function ServiceForm({
 
   if (isEmbedded) {
     return (
-      <div id="quote" className={`${shellClass} scroll-mt-4`}>
+      <div
+        id="estimate-form"
+        className={`${shellClass} scroll-mt-28 md:scroll-mt-24`}
+      >
         {card}
       </div>
     );
   }
 
   return (
-    <section id="quote" className={`${shellClass} scroll-mt-4`}>
+    <section
+      id="estimate-form"
+      className={`${shellClass} scroll-mt-28 md:scroll-mt-24`}
+    >
       {card}
     </section>
   );

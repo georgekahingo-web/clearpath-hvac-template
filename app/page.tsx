@@ -1,23 +1,26 @@
 import Hero from "@/components/Hero";
-import MobileStickyCta from "@/components/MobileStickyCta";
+import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ServiceForm from "@/components/ServiceForm";
+import TrustStrip from "@/components/TrustStrip";
 
 export default function Home() {
   return (
     <>
-      <div className="pb-[calc(5.75rem+env(safe-area-inset-bottom))] md:pb-0">
-        <main className="flex flex-1 flex-col">
-          <div className="bg-blue-600 text-white text-center py-2 text-sm font-medium">
-            24/7 Emergency Service • Call Now: (404) 555-1234
-          </div>
-          <Hero>
-            <ServiceForm variant="embedded" />
-          </Hero>
-        </main>
-        <SiteFooter />
-      </div>
-      <MobileStickyCta />
+      <main className="flex flex-1 flex-col">
+        <SiteHeader
+          phone="(770) 562-7698"
+          phoneHref="tel:+17705627698"
+        />
+        <Hero phone="(770) 562-7698" phoneHref="tel:+17705627698">
+          <ServiceForm variant="embedded" />
+        </Hero>
+        <TrustStrip />
+      </main>
+      <SiteFooter
+        phone="(770) 562-7698"
+        phoneHref="tel:+17705627698"
+      />
     </>
   );
 }

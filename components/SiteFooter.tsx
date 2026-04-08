@@ -22,7 +22,10 @@ export default function SiteFooter({
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-slate-400">
+    <footer
+      id="about"
+      className="border-t border-white/10 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-slate-400"
+    >
       <div className="mx-auto max-w-[min(100%,90rem)] px-5 py-12 sm:px-6 lg:px-8 lg:py-14">
         <div className="grid grid-cols-1 gap-10 sm:gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-10 xl:gap-14">
           <div className="min-w-0 space-y-3">

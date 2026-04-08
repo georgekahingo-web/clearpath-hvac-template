@@ -38,6 +38,6 @@ body {
   @apply w-full rounded-lg border border-gray-300 bg-white px-3 py-3 text-sm text-black placeholder:text-gray-400;
   @apply transition-all duration-200 ease-out;
   @apply hover:border-gray-400;
-  @apply focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-0;
+  @apply focus:border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700/40 focus:ring-offset-0;
   @apply motion-reduce:transition-none;
 }
