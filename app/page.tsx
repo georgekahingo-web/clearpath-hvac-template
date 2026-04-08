@@ -17,10 +17,7 @@ export default function Home() {
         </Hero>
         <TrustStrip />
       </main>
-      <SiteFooter
-        phone="(770) 562-7698"
-        phoneHref="tel:+17705627698"
-      />
+      <SiteFooter />
     </>
   );
 }

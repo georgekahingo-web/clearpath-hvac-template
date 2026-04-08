@@ -21,18 +21,28 @@ export default function SiteHeader({
   phoneHref = "tel:+17705627698",
   scheduleHref = "#estimate-form",
 }: SiteHeaderProps) {
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setIsScrolled(window.scrollY > 50);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navRowClass = [
-    "flex items-center justify-between border-b border-white/10 bg-white/5 px-6 py-4 backdrop-blur-xl transition-all duration-300",
-    scrolled ? "shadow-[0_8px_30px_rgba(0,0,0,0.08)]" : "",
+    "flex w-full origin-top items-center justify-between border-b border-white/10 bg-black/30 bg-gradient-to-b from-black/40 to-black/10 px-6 shadow-[0_8px_30px_rgba(0,0,0,0.15)] backdrop-blur-xl transition-all duration-300 ease-in-out",
+    isScrolled ? "scale-[0.98] py-2" : "scale-100 py-4",
+  ].join(" ");
+
+  const navClusterClass = [
+    "flex max-w-[min(100%,42rem)] flex-1 flex-wrap items-center justify-end gap-y-2 transition-all duration-300 ease-in-out",
+    isScrolled ? "gap-x-3 sm:gap-x-4" : "gap-x-4 sm:gap-x-5",
+  ].join(" ");
+
+  const navLinksClass = [
+    "flex flex-wrap items-center justify-end gap-y-1 transition-all duration-300 ease-in-out",
+    isScrolled ? "gap-x-3" : "gap-x-4",
   ].join(" ");
 
   return (
@@ -46,20 +56,19 @@ export default function SiteHeader({
       <div className={navRowClass}>
         <Link
           href="/"
-          className="text-xl font-bold text-white transition-opacity duration-300 hover:opacity-90"
+          className={`font-bold text-white drop-shadow-sm transition-all duration-300 ease-in-out hover:opacity-90 ${
+            isScrolled ? "text-lg" : "text-xl"
+          }`}
         >
           Clearpath HVAC
         </Link>
-        <div className="flex max-w-[min(100%,42rem)] flex-1 flex-wrap items-center justify-end gap-x-4 gap-y-2 sm:gap-x-5">
-          <nav
-            className="flex flex-wrap items-center justify-end gap-x-4 gap-y-1"
-            aria-label="Primary"
-          >
+        <div className={navClusterClass}>
+          <nav className={navLinksClass} aria-label="Primary">
             {defaultNav.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-white/80 transition-colors duration-200 hover:text-white"
+                className="relative inline-block text-sm font-medium text-white drop-shadow-sm transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-blue-400 after:transition-transform after:duration-300 after:ease-out after:content-[''] hover:text-white/95 hover:after:scale-x-100"
               >
                 {item.label}
               </Link>
@@ -67,13 +76,13 @@ export default function SiteHeader({
           </nav>
           <Link
             href={scheduleHref}
-            className="shrink-0 rounded-full bg-red-500 px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-red-600"
+            className="shrink-0 rounded-full bg-red-500 px-4 py-2 text-sm font-semibold text-white drop-shadow-sm transition-all duration-300 ease-in-out hover:bg-red-600"
           >
             Get Your Free Estimate
           </Link>
           <a
             href={phoneHref}
-            className="shrink-0 text-sm font-semibold text-white/70 underline-offset-4 transition-colors duration-200 hover:text-white hover:underline"
+            className="shrink-0 text-sm font-semibold text-white drop-shadow-sm underline-offset-4 transition-colors duration-200 hover:text-white/95 hover:underline"
           >
             {phone}
           </a>
