@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export type SiteHeaderProps = {
+  businessName?: string;
+  city?: string;
   phone?: string;
   phoneHref?: string;
   scheduleHref?: string;
@@ -17,6 +19,8 @@ const defaultNav = [
 ] as const;
 
 export default function SiteHeader({
+  businessName = "Clearpath HVAC",
+  city = "Atlanta",
   phone = "(770) 562-7698",
   phoneHref = "tel:+17705627698",
   scheduleHref = "#estimate-form",
@@ -54,14 +58,17 @@ export default function SiteHeader({
         5-Star HVAC Service
       </div>
       <div className={navRowClass}>
-        <Link
-          href="/"
-          className={`font-bold text-white drop-shadow-sm transition-all duration-300 ease-in-out hover:opacity-90 ${
-            isScrolled ? "text-lg" : "text-xl"
-          }`}
-        >
-          Clearpath HVAC
-        </Link>
+        <div className="flex flex-col">
+          <Link
+            href="/"
+            className={`font-bold text-white drop-shadow-sm transition-all duration-300 ease-in-out hover:opacity-90 ${
+              isScrolled ? "text-lg" : "text-xl"
+            }`}
+          >
+            {businessName}
+          </Link>
+          <span className="text-xs text-white/60">{city}</span>
+        </div>
         <div className={navClusterClass}>
           <nav className={navLinksClass} aria-label="Primary">
             {defaultNav.map((item) => (

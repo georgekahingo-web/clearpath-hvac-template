@@ -1,7 +1,13 @@
+ "use client";
+
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import type { ReactNode } from "react";
 
 export type HeroProps = {
+  business?: string;
+  city?: string;
   /** Display label for the phone CTA */
   phone?: string;
   /** `tel:` href (digits/plus only after tel:) */
@@ -24,12 +30,17 @@ const trustItems = (
   { key: "experience", label: `${years}+ years in the field` },
 ];
 
-export default function Hero({
+function HeroContent({
+  business,
+  city,
   phone = "(404) 555-1234",
   phoneHref = "tel:+14045551234",
   yearsExperience = 15,
   children,
 }: HeroProps) {
+  const searchParams = useSearchParams();
+  const businessName = business ?? searchParams.get("business") ?? "Clearpath HVAC";
+  const cityName = city ?? searchParams.get("city") ?? "Atlanta";
   const items = trustItems(yearsExperience);
   const split = Boolean(children);
 
@@ -78,7 +89,8 @@ export default function Hero({
                 aria-hidden
               />
               <p className="max-w-md text-lg leading-relaxed text-white/80">
-                Licensed & insured techs. Clear pricing before work begins.
+                Licensed & insured techs serving {cityName}. Clear pricing before
+                work begins at {businessName}.
               </p>
               <a
                 href={phoneHref}
@@ -138,7 +150,8 @@ export default function Hero({
               aria-hidden
             />
             <p className="max-w-md text-lg leading-relaxed text-white/80">
-              Licensed & insured techs. Clear pricing before work begins.
+              Licensed & insured techs serving {cityName}. Clear pricing before
+              work begins at {businessName}.
             </p>
             <a
               href={phoneHref}
@@ -179,5 +192,13 @@ export default function Hero({
         )}
       </div>
     </section>
+  );
+}
+
+export default function Hero(props: HeroProps) {
+  return (
+    <Suspense fallback={null}>
+      <HeroContent {...props} />
+    </Suspense>
   );
 }
